@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--My Places-->
         <scene sceneID="ifI-xt-Aec">
             <objects>
                 <tableViewController id="qkj-9p-HCL" customClass="MainViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,7 +32,7 @@
                             <outlet property="delegate" destination="qkj-9p-HCL" id="ZFt-xb-p4w"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Q5X-gx-T72"/>
+                    <navigationItem key="navigationItem" title="My Places" id="Q5X-gx-T72"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mmO-gf-ztY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,6 +45,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ygA-8k-Adu">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="24"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="qkj-9p-HCL" kind="relationship" relationship="rootViewController" id="MQD-BY-EvE"/>
