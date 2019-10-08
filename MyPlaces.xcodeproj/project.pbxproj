@@ -12,6 +12,7 @@
 		FCE6E386234BADD500790D60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCE6E385234BADD500790D60 /* Assets.xcassets */; };
 		FCE6E389234BADD500790D60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCE6E387234BADD500790D60 /* LaunchScreen.storyboard */; };
 		FCE6E391234BC33100790D60 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6E390234BC33100790D60 /* MainViewController.swift */; };
+		FCE6E3B3234C654300790D60 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6E3B2234C654300790D60 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		FCE6E388234BADD500790D60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCE6E38A234BADD500790D60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCE6E390234BC33100790D60 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FCE6E3B2234C654300790D60 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				FCE6E37E234BADD400790D60 /* AppDelegate.swift */,
 				FCE6E390234BC33100790D60 /* MainViewController.swift */,
 				FCE6E382234BADD400790D60 /* Main.storyboard */,
+				FCE6E3B2234C654300790D60 /* CustomTableViewCell.swift */,
 				FCE6E385234BADD500790D60 /* Assets.xcassets */,
 				FCE6E387234BADD500790D60 /* LaunchScreen.storyboard */,
 				FCE6E38A234BADD500790D60 /* Info.plist */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCE6E3B3234C654300790D60 /* CustomTableViewCell.swift in Sources */,
 				FCE6E37F234BADD400790D60 /* AppDelegate.swift in Sources */,
 				FCE6E391234BC33100790D60 /* MainViewController.swift in Sources */,
 			);
