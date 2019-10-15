@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GuessTheNumber" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Угадай число" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaV-jO-xzT">
+                                <rect key="frame" x="66" y="83" width="243" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="1Ap-gY-lVI"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="243" id="Hcc-GD-pW2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E6v-Nw-c5f">
+                                <rect key="frame" x="66" y="195" width="243" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="so0-sp-eLy">
+                                <rect key="frame" x="66" y="288" width="243" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tk2-HK-sw1">
+                                <rect key="frame" x="139.5" y="459" width="96" height="67"/>
+                                <color key="backgroundColor" red="0.93395596336157294" green="0.71389346361753492" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="4V2-ml-utc"/>
+                                    <constraint firstAttribute="height" constant="67" id="nRQ-Ju-duz"/>
+                                </constraints>
+                                <state key="normal" title="Ввести">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1aa-WH-5sx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.86530465747908347" green="1" blue="0.68800492766913313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="so0-sp-eLy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="130-mZ-Eqy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Tk2-HK-sw1" secondAttribute="bottom" constant="141" id="DxR-Hl-Ely"/>
+                            <constraint firstItem="E6v-Nw-c5f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="66" id="NeP-HB-bbA"/>
+                            <constraint firstItem="so0-sp-eLy" firstAttribute="top" secondItem="E6v-Nw-c5f" secondAttribute="bottom" constant="63" id="NeV-Zx-0WP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="E6v-Nw-c5f" secondAttribute="trailing" constant="66" id="OWQ-yj-Z3o"/>
+                            <constraint firstItem="BaV-jO-xzT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="63" id="QcJ-lO-ynM"/>
+                            <constraint firstItem="Tk2-HK-sw1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="S2N-Cj-KLW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="so0-sp-eLy" secondAttribute="trailing" constant="66" id="aPL-S3-nG9"/>
+                            <constraint firstItem="BaV-jO-xzT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cV0-QG-gAW"/>
+                            <constraint firstItem="E6v-Nw-c5f" firstAttribute="top" secondItem="BaV-jO-xzT" secondAttribute="bottom" constant="71" id="dqw-i8-PrX"/>
+                            <constraint firstItem="E6v-Nw-c5f" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="eNE-MJ-O1c"/>
+                            <constraint firstItem="so0-sp-eLy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="66" id="xqg-f6-Jis"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="so0-sp-eLy" id="pKE-Pz-k2G"/>
+                        <outlet property="textField" destination="E6v-Nw-c5f" id="Nbx-av-SSY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.40000000000001" y="129.98500749625188"/>
+        </scene>
+    </scenes>
+</document>
