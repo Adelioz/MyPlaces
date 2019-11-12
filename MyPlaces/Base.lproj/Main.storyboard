@@ -302,6 +302,17 @@
                                     <action selector="centerViewInUserLocation" destination="CMN-to-l9V" eventType="touchUpInside" id="fDz-Bo-T61"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9du-Xx-MfR">
+                                <rect key="frame" x="162.66666666666666" y="688" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="NuH-OF-ozN"/>
+                                    <constraint firstAttribute="height" constant="50" id="bAj-af-Hqo"/>
+                                </constraints>
+                                <state key="normal" image="GetDirection"/>
+                                <connections>
+                                    <action selector="goButtonPressed" destination="CMN-to-l9V" eventType="touchUpInside" id="a9C-ZX-eRv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -316,8 +327,10 @@
                             <constraint firstItem="AG3-gF-gDa" firstAttribute="centerY" secondItem="cjo-cC-5A9" secondAttribute="centerY" constant="-20" id="SdD-Kv-Dh6"/>
                             <constraint firstItem="Tmz-Lj-I5N" firstAttribute="trailing" secondItem="R2H-S2-EcD" secondAttribute="trailing" constant="16" id="W8b-fk-HsZ"/>
                             <constraint firstItem="Tmz-Lj-I5N" firstAttribute="trailing" secondItem="TUg-UH-n1f" secondAttribute="trailing" constant="40" id="WsJ-Ao-rzr"/>
+                            <constraint firstItem="Tmz-Lj-I5N" firstAttribute="bottom" secondItem="9du-Xx-MfR" secondAttribute="bottom" constant="40" id="fCU-Wm-P9L"/>
                             <constraint firstItem="9Q9-CV-fh8" firstAttribute="trailing" secondItem="Tmz-Lj-I5N" secondAttribute="trailing" id="g7p-KE-Lwv"/>
                             <constraint firstItem="TUg-UH-n1f" firstAttribute="top" secondItem="Tmz-Lj-I5N" secondAttribute="top" constant="40" id="jiG-x8-rCG"/>
+                            <constraint firstItem="9du-Xx-MfR" firstAttribute="centerX" secondItem="cjo-cC-5A9" secondAttribute="centerX" id="lzG-Yi-GQ8"/>
                             <constraint firstItem="Tmz-Lj-I5N" firstAttribute="bottom" secondItem="pGe-1q-4sQ" secondAttribute="bottom" constant="40" id="maj-6p-EW3"/>
                             <constraint firstItem="AG3-gF-gDa" firstAttribute="centerX" secondItem="cjo-cC-5A9" secondAttribute="centerX" id="siJ-8U-4JN"/>
                         </constraints>
@@ -326,6 +339,7 @@
                     <connections>
                         <outlet property="addressLabel" destination="R2H-S2-EcD" id="6la-vj-HWh"/>
                         <outlet property="doneButton" destination="pGe-1q-4sQ" id="tLB-2w-K8l"/>
+                        <outlet property="goButton" destination="9du-Xx-MfR" id="UGX-ET-8x0"/>
                         <outlet property="mapPinImage" destination="AG3-gF-gDa" id="mR2-uR-Q9k"/>
                         <outlet property="mapView" destination="9Q9-CV-fh8" id="kCe-uf-MMa"/>
                     </connections>
@@ -490,6 +504,7 @@
     </scenes>
     <resources>
         <image name="AZ" width="25" height="24"/>
+        <image name="GetDirection" width="50" height="50"/>
         <image name="Location" width="128" height="128"/>
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
         <image name="Pin" width="40" height="40"/>
