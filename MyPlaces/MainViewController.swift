@@ -7,49 +7,31 @@
 //
 
 import UIKit
+import CoreData
+
+let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
 class MainViewController: UITableViewController {
     
+    var placesArray = [Places]()
     
-    var places = Place.getPlaces()
+    
+    //var places = Place.getPlaces()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
     }
-
-    // MARK: - Table view data source
-
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetchData()
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return places.count
+        tableView.reloadData()
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
-        
-        let place = places[indexPath.row]
-        
-        cell.nameLabel.text = place.name
-        cell.typeLabel.text = place.type
-        cell.locationLabel.text = place.location
-        
-        if place.image == nil {
-            cell.imageOfPlace.image = UIImage(named: place.restaurantImage!)
-        } else {
-            cell.imageOfPlace.image = place.image
-        }
-        
-        
-        cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace .frame.size.height / 2
-        cell.imageOfPlace.clipsToBounds = true
-
-        return cell
-    }
     
     
     
@@ -71,9 +53,109 @@ class MainViewController: UITableViewController {
         guard let newPlaceVC = segue.source as? NewPlaceViewController else { return }
         
         newPlaceVC.saveNewPlace()
-        places.append(newPlaceVC.newPlace!)
         tableView.reloadData()
         
     }
-
+    
+    
+    
+    
 }
+
+extension MainViewController {
+    func fetchData() {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Places")
+        
+        do {
+             placesArray = try managedContext.fetch(request) as! [Places]
+            print("data fetched")
+            
+        } catch {
+            print("fetch false: ", error.localizedDescription )
+
+        }
+    }
+    
+    func deleteData(indexPath: IndexPath) {
+        
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        managedContext.delete(placesArray[indexPath.row])
+        do {
+            try managedContext.save()
+            print("Data deleted")
+            
+        } catch {
+            print("failed to delete", error.localizedDescription)
+        }
+    
+        
+        
+        
+    }
+}
+
+
+extension MainViewController {
+    
+    // MARK: - Table view data source
+    
+    
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        
+        return placesArray.isEmpty ? 0 : placesArray.count
+        
+        
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
+        
+        let place = placesArray[indexPath.row]
+        let im = place.image as! Data
+        
+        
+        cell.nameLabel.text = place.name
+        cell.typeLabel.text = place.type
+        cell.locationLabel.text = place.location
+        cell.imageOfPlace.image = UIImage(data: im)
+        
+        
+        cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace .frame.size.height / 2
+        cell.imageOfPlace.clipsToBounds = true
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+//    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+//        return .none
+//    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        //let place = placesArray[indexPath.row]
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
+
+            self.deleteData(indexPath: indexPath)
+            self.placesArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+        return [deleteAction]
+        
+    }
+    
+    
+
+    
+}
+
+
+

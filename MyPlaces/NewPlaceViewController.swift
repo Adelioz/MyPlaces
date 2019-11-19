@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class NewPlaceViewController: UITableViewController {
     
-    var newPlace: Place?
+    //var newPlace: Place?
     var imageIsChanged = false
 
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -70,8 +71,11 @@ class NewPlaceViewController: UITableViewController {
     }
     
     func saveNewPlace() {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        let place = Places(context: managedContext)
         
         var image: UIImage?
+        
         
         if imageIsChanged {
             image = placeImage.image
@@ -79,11 +83,19 @@ class NewPlaceViewController: UITableViewController {
             image = #imageLiteral(resourceName: "imagePlaceholder")
         }
         
-        newPlace = Place(name: placeName.text!,
-                         location: placeLocation.text,
-                         type: placeType.text,
-                         image: image,
-                         restaurantImage: nil)
+        let imageData = image?.pngData()
+        
+        place.name = placeName.text!
+        place.type = placeType.text
+        place.location = placeLocation.text
+        place.image = imageData as NSObject?
+        
+        do {
+            try managedContext.save()
+            print("Data saved")
+        } catch {
+            print("failed to save: ", error.localizedDescription)
+        }
     }
     
     @IBAction func cancelAction(_ sender: Any) {
